@@ -3,6 +3,7 @@ const app = express()
 const cors = require('cors')
 const http = require('http')
 const notesRouter = require('./controllers/notes')
+require('dotenv').config()
 const mongoose = require('mongoose')
 
 mongoose.connect(process.env.MONGODB_URI)
@@ -16,7 +17,7 @@ app.use('/api/notes', notesRouter)
 
 const server = http.createServer(app)
 
-const PORT = process.env.PORT
+const PORT = process.env.PORTS || 3001
 server.listen(PORT, () => {
   console.log(`Server running on port ${PORT}`)
 })
