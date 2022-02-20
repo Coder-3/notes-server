@@ -11,7 +11,8 @@ notesRouter.post('/', async (request, response) => {
 
   const note = new Note({
     title: body.title,
-    content: body.content
+    content: body.content,
+    isTrashed: body.isTrashed
   })
 
   const savedNote = await note.save()
@@ -32,7 +33,8 @@ notesRouter.put('/:id', (request, response, next) => {
 
   const note = {
     title: body.title,
-    content: body.content
+    content: body.content,
+    isTrashed: body.isTrashed
   }
 
   Note.findByIdAndUpdate(request.params.id, note, { new: true })
