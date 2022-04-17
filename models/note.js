@@ -11,7 +11,7 @@ const noteSchema = new mongoose.Schema({
     minlength: 5
   },
   isTrashed: {
-    type: Boolean,
+    type: String,
     required: true,
   }
 })
